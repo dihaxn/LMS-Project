@@ -1,9 +1,13 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import { assets } from '../../assets/assets.js';
 import {useClerk, UserButton, useUser} from "@clerk/clerk-react";
+import {useContext} from "react";
+import {AppContext} from "../../context/AppContext.jsx";
 
 const Navbar = () => {
+
+    const {navigate} = useContext(AppContext);
+
     const location = useLocation();
     const isCourseListPage = location.pathname.includes('/course-list');
 
@@ -18,7 +22,7 @@ const Navbar = () => {
             }`}
         >
             <Link to="/">
-                <img src={assets.logo} alt="Logo" className="w-28 lg:w-32 cursor-pointer" />
+                <img onClick={()=> navigate('/')} src={assets.logo} alt="Logo" className="w-28 lg:w-32 cursor-pointer" />
             </Link>
 
             <div className="hidden md:flex items-center justify-center gap-5 text-gray-500">
