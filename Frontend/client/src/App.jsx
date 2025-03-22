@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, useMatch } from 'react-router-dom';
 import Home from './pages/student/Home';                // Adjusted path
 import CoursesList from './pages/student/CoursesList';  // Adjusted path
